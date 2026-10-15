@@ -40,6 +40,9 @@ repository's built-in server or one custom MCP Server node, never both.
 Need a different one? Change the address from `/plugin` → Configure.
 Support for several servers in one install is planned.
 
+Add your Grooper MCP URL **once in Claude Code** — the Claude desktop
+app's Code tab uses the same machine config; nothing to do there.
+
 `/mcp` should then show `plugin:grooper:Grooper MCP` connected. You get whatever
 tools that server exposes — the built-in server has over 100, for reading
 configuration, building it, running services and jobs, and searching
@@ -127,21 +130,27 @@ optional pinned copy: replace `${user_config.grooper_mcp_url}` in
 - **Claude Code runs on your machine**, so intranet/VPN-hosted GWS servers
   work. (Claude on the web cannot reach servers that are not
   internet-exposed.)
-- **Internal certificates work.** Current Claude Code (native installer,
-  v2.1.101+) trusts your Windows certificate store, so an internal CA
-  distributed by Active Directory is trusted automatically. For npm-based
-  installs or machines missing the root, point one environment variable at
-  your internal root CA — directly or via `.claude/settings.json`:
+- **Internal certificates work.** Claude Code trusts your Windows
+  certificate store, so a GWS certificate issued by an internal CA that
+  Active Directory distributes connects with no setup — verified
+  end-to-end against a BIS internal-CA server. For machines missing the
+  root, one environment variable can add it (a **CA certificate**, not a
+  server certificate):
 
   ```json
   { "env": { "NODE_EXTRA_CA_CERTS": "C:\\certs\\your-internal-root-ca.pem" } }
   ```
 
-  Plain `http://` on a trusted network also works; Claude Code places no
-  HTTPS requirement on MCP servers it reaches locally.
-- v1 supports anonymous or bearer-token endpoints; GWS OAuth configuration
-  docs are coming. Credentials configured here stay in Claude Code's local
-  credential store.
+  Self-signed development certificates (`dotnet dev-certs`, IIS Express)
+  are the one thing that never works: Node-based clients reject them even
+  when installed in the Windows store. For local development use plain
+  `http://`, which is fully supported — Claude Code places no HTTPS
+  requirement on MCP servers it reaches locally.
+- Grooper MCP endpoints are reached **without any API key or token** — the
+  plugin stores no secrets because there are none to store. Access control
+  is your GWS server's business (network placement, Windows auth at the
+  gateway, etc.). GWS OAuth support is in development; docs will ship with
+  it.
 
 ## Updating
 
