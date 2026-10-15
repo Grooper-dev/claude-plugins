@@ -35,8 +35,10 @@ https://your-server/GWS/{repository}/mcp/servers/{serverName}
 To see which servers a repository has, open
 `https://your-server/GWS/{repository}/mcp/servers` in a browser.
 
-One plugin install connects Claude to one Grooper server at a time; change
-the address any time from `/plugin` → Configure.
+One plugin install connects Claude to one MCP server — either a
+repository's built-in server or one custom MCP Server node, never both.
+Need a different one? Change the address from `/plugin` → Configure.
+Support for several servers in one install is planned.
 
 `/mcp` should then show `plugin:grooper:mcp` connected. You get whatever
 tools that server exposes — the built-in server has over 100, for reading
