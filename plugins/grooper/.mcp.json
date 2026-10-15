@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mcp": {
+      "type": "http",
+      "url": "${user_config.grooper_mcp_url}"
+    }
+  }
+}

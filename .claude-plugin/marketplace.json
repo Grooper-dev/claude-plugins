@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "grooper-dev",
+  "owner": {
+    "name": "Business Imaging Systems, Inc. (BIS)",
+    "email": "info@grooper.com",
+    "url": "https://grooper.com"
+  },
+  "metadata": {
+    "description": "Official Grooper plugins for Claude",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "grooper",
+      "source": "./plugins/grooper",
+      "description": "Grooper is your harness for any kind of data — the processes and loops built around it. Every repository can host its own MCP servers, curated or fully custom. Point Claude at any of them and just talk.",
+      "version": "0.1.0",
+      "category": "development",
+      "tags": ["grooper", "mcp", "model-context-protocol", "custom-mcp-servers", "data-automation", "data-extraction", "data-enrichment", "ocr", "classification", "search", "rag", "vector-search", "ai-agents", "workflow-automation", "human-in-the-loop", "enterprise"]
+    }
+  ]
+}

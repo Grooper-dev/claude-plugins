@@ -1,0 +1,28 @@
+{
+  "name": "grooper",
+  "displayName": "Grooper",
+  "version": "0.1.0",
+  "description": "Talk to your Grooper repositories over their GWS MCP endpoints — built-in or custom MCP servers you create in Grooper.",
+  "author": {
+    "name": "Business Imaging Systems, Inc. (BIS)",
+    "email": "support@bisok.com",
+    "url": "https://grooper.com"
+  },
+  "homepage": "https://grooper.com",
+  "repository": "https://github.com/Grooper-dev/claude-plugins",
+  "license": "SEE LICENSE IN https://grooper.com/EULA/",
+  "keywords": ["grooper", "mcp", "mcp-server", "document-processing", "idp", "ocr", "data-extraction", "data-automation", "unstructured-data", "search", "rag", "vector-search", "ai-agents", "workflow-automation", "human-in-the-loop", "enterprise"],
+  "icon": "./assets/logo.png",
+  "termsOfServiceUrl": "https://grooper.com/EULA/",
+  "privacyPolicyUrl": "https://grooper.com/privacy-policy/",
+  "documentationUrl": "https://help.grooper.com",
+  "supportUrl": "https://grooper.com/support/",
+  "userConfig": {
+    "grooper_mcp_url": {
+      "type": "string",
+      "title": "Grooper MCP endpoint",
+      "description": "GWS MCP URL for the repository, e.g. https://your-server/GWS/{repositoryId}/mcp",
+      "required": true
+    }
+  }
+}
