@@ -1,7 +1,7 @@
 # Grooper MCP tool cookbook (read-only recipes)
 
 Tool names are shown bare; when installed via the plugin they are prefixed
-`mcp__plugin_grooper_mcp__`. Argument names below were verified against the
+`mcp__plugin_grooper_Grooper_MCP__`. Argument names below were verified against the
 live server (`tools/list`) — trust the live schema over this file.
 
 ## Inventory a project

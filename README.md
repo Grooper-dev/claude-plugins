@@ -11,7 +11,7 @@ at any one of them and just talk.
 
 ```text
 /plugin marketplace add Grooper-dev/claude-plugins
-/plugin install grooper@grooper-dev
+/plugin install grooper@bis
 ```
 
 Claude Code prompts you once for the address of the **Grooper MCP server**
@@ -40,7 +40,7 @@ repository's built-in server or one custom MCP Server node, never both.
 Need a different one? Change the address from `/plugin` → Configure.
 Support for several servers in one install is planned.
 
-`/mcp` should then show `plugin:grooper:mcp` connected. You get whatever
+`/mcp` should then show `plugin:grooper:Grooper MCP` connected. You get whatever
 tools that server exposes — the built-in server has over 100, for reading
 configuration, building it, running services and jobs, and searching
 processed content. The plugin teaches Claude to hand work to three roles,
@@ -70,13 +70,39 @@ Plugin components load differently on each Claude surface
 | --- | --- | --- | --- |
 | Navigation skill | ✅ | ✅ | ✅ |
 | The three agents | — | ✅ | ✅ |
-| MCP connection | via connector | via connector | ✅ (prompts for your URL) |
+| MCP connection | custom connector | custom connector | ✅ (prompts for your URL) |
 
-Claude Code prompts for your endpoint at install. **Desktop and chat don't
-prompt** — there, install a copy of this folder with the URL hard-pinned in
-`plugins/grooper/.mcp.json`: replace `${user_config.grooper_mcp_url}` with
-your real endpoint URL, zip the folder, and use **Customize → Plugins → Add
-→ Upload plugin**. Two minutes, full skill + agent + connection.
+**Claude Code — terminal, IDE extensions, and the Claude desktop app's Code
+tab — is the Grooper experience.** It prompts for your endpoint at install,
+saves it on your machine, and connects **from your machine**, so intranet
+and VPN-only GWS servers work as-is. Desktop-app users just use the Code
+tab: same config, same 100+ tools, nothing below this line needed.
+
+**Desktop and chat don't prompt for plugin settings**, so it's two steps
+there, no files to touch:
+
+1. **Customize → Plugins → Add marketplace** → enter this repository's URL
+   (`https://github.com/Grooper-dev/claude-plugins`) → install `grooper`.
+   The skill and agents load immediately.
+2. Connect Grooper as a **custom connector**: add your Grooper MCP URL (the
+   same address Claude Code asks for) under your connector settings.
+   Installing a plugin never connects its server for you — that's true of
+   every plugin.
+
+**Where the connection dials from matters on intranets.** Chat and Cowork
+reach remote MCP servers *from Anthropic's cloud*, not from your laptop —
+so those paths need a GWS address reachable from the internet, ideally
+protected by authentication. Claude Code and the desktop app's Code tab
+connect **from your own machine**, so VPN-only and intranet-only GWS
+servers work there as-is.
+
+One difference to know about: the per-role tool fences match the plugin's
+own connection, which only Claude Code can make with your URL. Over a
+custom connector, access is governed by your GWS server's permissions and
+Claude's prompts. For a fully fenced connection on desktop, there's an
+optional pinned copy: replace `${user_config.grooper_mcp_url}` in
+`plugins/grooper/.mcp.json` with your URL, zip the folder, and use
+**Customize → Plugins → Add → Upload plugin**.
 
 ## Security
 
@@ -90,11 +116,11 @@ your real endpoint URL, zip the folder, and use **Customize → Plugins → Add
 
   ```json
   { "permissions": { "deny": [
-    "mcp__plugin_grooper_mcp__Delete_Node",
-    "mcp__plugin_grooper_mcp__Update_Node",
-    "mcp__plugin_grooper_mcp__Add_Child_Nodes",
-    "mcp__plugin_grooper_mcp__Clear_Child_Nodes",
-    "mcp__plugin_grooper_mcp__Copy_Or_Move_Node"
+    "mcp__plugin_grooper_Grooper_MCP__Delete_Node",
+    "mcp__plugin_grooper_Grooper_MCP__Update_Node",
+    "mcp__plugin_grooper_Grooper_MCP__Add_Child_Nodes",
+    "mcp__plugin_grooper_Grooper_MCP__Clear_Child_Nodes",
+    "mcp__plugin_grooper_Grooper_MCP__Copy_Or_Move_Node"
   ] } }
   ```
 
@@ -120,7 +146,7 @@ your real endpoint URL, zip the folder, and use **Customize → Plugins → Add
 ## Updating
 
 ```text
-claude plugin update grooper@grooper-dev
+claude plugin update grooper@bis
 ```
 
 Marketplace auto-update is off by default for third-party marketplaces;

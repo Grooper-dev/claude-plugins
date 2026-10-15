@@ -10,7 +10,7 @@ when_to_use: >-
   this content model extracting", "which scripts drive this batch
   process", "inventory the projects", or any read-only investigation of a
   Grooper repository via its MCP endpoint.
-allowed-tools: mcp__plugin_grooper_mcp__*
+allowed-tools: mcp__plugin_grooper_Grooper_MCP__*
 ---
 
 # Navigating a Grooper repository over MCP

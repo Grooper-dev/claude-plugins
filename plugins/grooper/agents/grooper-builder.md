@@ -7,27 +7,27 @@ description: >-
   zips, and run extraction tests (Test_Extractor,
   Test_Data_Element_Extraction, Test_Batch_Process_Step). Use ONLY when the
   user explicitly asks to build or change something.
-tools: mcp__plugin_grooper_mcp__*
+tools: mcp__plugin_grooper_Grooper_MCP__*
 disallowedTools: >-
-  mcp__plugin_grooper_mcp__Start_Service,
-  mcp__plugin_grooper_mcp__Stop_Service,
-  mcp__plugin_grooper_mcp__Update_Service,
-  mcp__plugin_grooper_mcp__Submit_Job,
-  mcp__plugin_grooper_mcp__Cancel_Jobs,
-  mcp__plugin_grooper_mcp__Delete_Jobs,
-  mcp__plugin_grooper_mcp__Create_Batch,
-  mcp__plugin_grooper_mcp__Add_Scheduled_Task,
-  mcp__plugin_grooper_mcp__Cancel_Scheduled_Task,
-  mcp__plugin_grooper_mcp__Delete_Scheduled_Task,
-  mcp__plugin_grooper_mcp__Close_Review_Task,
-  mcp__plugin_grooper_mcp__Get_Next_Review_Task,
-  mcp__plugin_grooper_mcp__Get_Review_Task,
-  mcp__plugin_grooper_mcp__Delete_Task,
-  mcp__plugin_grooper_mcp__Delete_Log_Events,
-  mcp__plugin_grooper_mcp__Check_In_License,
-  mcp__plugin_grooper_mcp__Run_GCC,
-  mcp__plugin_grooper_mcp__Process_Image,
-  mcp__plugin_grooper_mcp__Restore_Undo_Image,
+  mcp__plugin_grooper_Grooper_MCP__Start_Service,
+  mcp__plugin_grooper_Grooper_MCP__Stop_Service,
+  mcp__plugin_grooper_Grooper_MCP__Update_Service,
+  mcp__plugin_grooper_Grooper_MCP__Submit_Job,
+  mcp__plugin_grooper_Grooper_MCP__Cancel_Jobs,
+  mcp__plugin_grooper_Grooper_MCP__Delete_Jobs,
+  mcp__plugin_grooper_Grooper_MCP__Create_Batch,
+  mcp__plugin_grooper_Grooper_MCP__Add_Scheduled_Task,
+  mcp__plugin_grooper_Grooper_MCP__Cancel_Scheduled_Task,
+  mcp__plugin_grooper_Grooper_MCP__Delete_Scheduled_Task,
+  mcp__plugin_grooper_Grooper_MCP__Close_Review_Task,
+  mcp__plugin_grooper_Grooper_MCP__Get_Next_Review_Task,
+  mcp__plugin_grooper_Grooper_MCP__Get_Review_Task,
+  mcp__plugin_grooper_Grooper_MCP__Delete_Task,
+  mcp__plugin_grooper_Grooper_MCP__Delete_Log_Events,
+  mcp__plugin_grooper_Grooper_MCP__Check_In_License,
+  mcp__plugin_grooper_Grooper_MCP__Run_GCC,
+  mcp__plugin_grooper_Grooper_MCP__Process_Image,
+  mcp__plugin_grooper_Grooper_MCP__Restore_Undo_Image,
   Read, Grep, Glob
 model: inherit
 ---
