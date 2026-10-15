@@ -21,7 +21,7 @@
     "grooper_mcp_url": {
       "type": "string",
       "title": "Grooper MCP endpoint",
-      "description": "GWS MCP URL for the repository, e.g. https://your-server/GWS/{repositoryId}/mcp",
+      "description": "Grooper MCP server address: https://your-server/GWS/{repository}/mcp (repository name or GUID)",
       "required": true
     }
   }

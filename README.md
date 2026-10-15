@@ -14,23 +14,35 @@ at any one of them and just talk.
 /plugin install grooper@grooper-dev
 ```
 
-Claude Code prompts you once for your **Grooper MCP endpoint** — the URL of
-the Grooper MCP server you want to talk to. Every repository hosts the
-built-in one:
+Claude Code prompts you once for the address of the **Grooper MCP server**
+you want to connect to. A repository's built-in server is:
 
 ```
-https://<your-gws-server>/GWS/<repositoryId>/mcp
+https://your-server/GWS/{repository}/mcp
 ```
 
-And MCP servers are a node type in Grooper: each custom **MCP Server** you
-build in a repository (curated toolsets, custom tools, your own
-instructions) exposes its own endpoint, shown on the node. Install the
-plugin once per server you want Claude to use — one prompt for each URL.
+`{repository}` is the repository's name or its GUID — e.g.
+`https://your-server/GWS/AcmeDocs/mcp`.
 
-`/mcp` should then show `plugin:grooper:mcp` connected. A Grooper MCP
-server exposes 100+ tools (nodes, scripts, documents, services, jobs,
-review tasks, logs, search); the plugin organizes them into three roles
-with hard tool fences, so Claude uses the right permissions for the job:
+If your repository defines its own **MCP Server** nodes — Grooper's way of
+controlling which tools an MCP client may see — each one has its own
+address:
+
+```
+https://your-server/GWS/{repository}/mcp/servers/{serverName}
+```
+
+To see which servers a repository has, open
+`https://your-server/GWS/{repository}/mcp/servers` in a browser.
+
+One plugin install connects Claude to one Grooper server at a time; change
+the address any time from `/plugin` → Configure.
+
+`/mcp` should then show `plugin:grooper:mcp` connected. You get whatever
+tools that server exposes — the built-in server has over 100, for reading
+configuration, building it, running services and jobs, and searching
+processed content. The plugin teaches Claude to hand work to three roles,
+so each job runs with only the permissions it needs:
 
 | Ask for… | Role Claude uses | Permissions |
 | --- | --- | --- |
